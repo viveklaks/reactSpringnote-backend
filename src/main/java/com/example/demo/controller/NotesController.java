@@ -14,19 +14,19 @@ import com.example.demo.entity.Note;
 import com.example.demo.repository.NotesRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("")
 @CrossOrigin("*")
 public class NotesController {
 	
 	@Autowired
 	NotesRepository nRepo;
 	
-	@GetMapping("/")
-	public String index() {
-		return "Greetings from Spring Boot!";
-	}
+	@RequestMapping("/")
+    public String home(){
+        return "Hello World!";
+    }
 	
-	@GetMapping("/notes")
+	@GetMapping("/api/notes")
 	public ResponseEntity<List<Note>> readNotes(){
 		return new ResponseEntity<List<Note>>(nRepo.findAll(),HttpStatus.OK);
 				
