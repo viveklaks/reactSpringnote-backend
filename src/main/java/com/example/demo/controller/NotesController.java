@@ -21,6 +21,11 @@ public class NotesController {
 	@Autowired
 	NotesRepository nRepo;
 	
+	@GetMapping("/")
+	public String index() {
+		return "Greetings from Spring Boot!";
+	}
+	
 	@GetMapping("/notes")
 	public ResponseEntity<List<Note>> readNotes(){
 		return new ResponseEntity<List<Note>>(nRepo.findAll(),HttpStatus.OK);
